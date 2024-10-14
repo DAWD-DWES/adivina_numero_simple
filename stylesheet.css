@@ -39,9 +39,14 @@ input[type="number"]{
 }
 
 .submit {
+    padding: 0 20px;
     height: 30px;
+    line-height: 30px; /* Centra el texto verticalmente */
     background: orange;
     text-align: center;
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px; /* Opcional: redondea las esquinas */
+    font-weight: bold;
 }
 
 .form-seccion {

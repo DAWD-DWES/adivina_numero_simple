@@ -22,7 +22,7 @@ if (filter_has_var(INPUT_POST, 'envio_apuesta')) { // SI se está enviando una a
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Guess Hidden Number!</title>
+        <title>¡Adivina el número oculto!</title>
         <meta name="viewport" content="width=device-width">
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stylesheet.css">

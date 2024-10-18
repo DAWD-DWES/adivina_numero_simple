@@ -43,7 +43,7 @@ if (filter_has_var(INPUT_POST, 'envio_apuesta')) { // SI se está enviando una a
                         <input id="apuesta" type="number"  required name="apuesta" min="<?= LIM_INF ?>" 
                                max="<?= LIM_SUP ?>" value="<?= ($apuesta) ?? ''; ?>" <?= !empty($fin) ? 'readonly' : '' ?> />
                     </div>
-                    <?php if (isset($fin) && $fin): ?> <!-- Si se ha acabado el juego -->
+                    <?php if ($fin ?? false): ?> <!-- isset ($fin) && $fin Si se ha acabado el juego -->
                         <div class="submit-seccion">
                             <!-- Añado un botón para iniciar una nueva partida y un mensaje de fin de juego -->
                             <!-- <input class="submit" type="submit" value="Nuevo Juego" name="nuevo_juego" /> -->
@@ -57,7 +57,7 @@ if (filter_has_var(INPUT_POST, 'envio_apuesta')) { // SI se está enviando una a
                             <input class="submit" type="submit" 
                                    value="Apuesta" name="envio_apuesta" /> 
                         </div>
-                        <?php if (isset($fin) && !$fin): ?> <!-- Si no se ha acabado el juego -->
+                        <?php if (!($fin ?? true)): ?> <!-- isset ($fin) && !$fin Si no se ha acabado el juego -->
                             <div class="info-seccion">
                                 <!-- Añado una pista para el usuario -->
                                 <p>Intentos restantes: <?= MAX_INTENTOS - $numIntentos ?></p>

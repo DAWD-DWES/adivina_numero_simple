@@ -51,7 +51,7 @@ if (filter_has_var(INPUT_POST, 'envio_apuesta')) { // SI se está enviando una a
                              <a href="<?= "{$_SERVER['PHP_SELF']}?nuevo_juego" ?>"><input class="submit" value="Nuevo Juego"></a>
                         </div>
                         <p class="info-seccion"><?= ($apuesta === $numOculto) ? "Enhorabuena!!! Lo has acertado en {$numIntentos} " . (($numIntentos !== 1) ? "intentos" : "intento") : 'Lo sentimos!!' ?></p> 
-                    <?php else: ?> <!-- Si no se ha acabado el juego o es el inicio de un nuevo juego-->
+                    <?php else: ?> <!-- Si no se ha acabado la partida o es el inicio de un nuevo juego-->
                         <div class="submit-seccion">
                             <!-- Añado un botón para enviar apuesta -->
                             <input class="submit" type="submit" 

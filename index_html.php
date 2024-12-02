@@ -18,23 +18,27 @@ define('LIM_SUP', 20);
             <div class="capaform">
                 <form class="form" name="form_apuestanumero" 
                       action="index.php" method="POST">
+                    <!-- Incluyo todos los datos ocultos -->
                     <div class="input-seccion">
                         <label for="apuesta"><?= 'Enter a numero (' . LIM_INF . '-' . LIM_SUP . '):' ?></label> 
                         <input id="apuesta" type="number"  required name="apuesta" min="<?= LIM_INF ?>" 
-                               max="<?= LIM_SUP ?>" >
+                               max="<?= LIM_SUP ?>">
                     </div>
+                    <!-- Si se ha acabado el juego -->
                     <div class="submit-seccion">
                         <!-- Añado un botón para iniciar una nueva partida y un mensaje de fin de juego -->
                         <!-- <input class="submit" type="submit" value="Nuevo Juego" name="nuevo_juego" /> -->
                         <!-- <input class="submit" type="submit" formmethod="GET" value="Nuevo Juego" name="nuevo_juego"> -->
-                        <a href="<?= "{$_SERVER['PHP_SELF']}?nuevo_juego" ?>"><input class="submit" value="Nuevo Juego"></a>
+                        <input type="submit" class="submit" name="nuevo_juego" value="Nuevo Juego"></a>
                     </div>
-                    <p class="info-seccion">Mensaje al jugador cuando termina la partida</p> 
+                    <p class="info-seccion">Mensaje al jugador cuando termina la partida</p>
+                    <!-- Si no -->
                     <div class="submit-seccion">
                         <!-- Añado un botón para enviar apuesta -->
                         <input class="submit" type="submit" 
-                               value="Apuesta" name="envio_apuesta" /> 
+                               value="Apuesta" name="envio_apuesta"> 
                     </div>
+                         <!-- Si no se ha acabado el juego -->
                     <div class="info-seccion">
                         <!-- Añado una pista para el usuario -->
                         <p>Intentos restantes:</p>

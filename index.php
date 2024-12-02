@@ -33,29 +33,30 @@ if (filter_has_var(INPUT_POST, 'envio_apuesta')) { // SI se está enviando una a
             <div class="capaform">
                 <form class="form" name="form_apuestanumero" 
                       action="index.php" method="POST">
-                    <input type="hidden" name="num_oculto" value="<?= $numOculto ?>" /> <!-- Incluyo el número secreto en el formulario para que no se pierda -->
-                    <input type="hidden" name="num_intentos" value="<?= $numIntentos ?>" /> <!-- Incluyo el número de intentos en el formulario para que no se pierda -->
+                    <!-- Incluyo todos los datos ocultos -->
+                    <input type="hidden" name="num_oculto" value="<?= $numOculto ?>"> <!-- Incluyo el número secreto en el formulario para que no se pierda -->
+                    <input type="hidden" name="num_intentos" value="<?= $numIntentos ?>"> <!-- Incluyo el número de intentos en el formulario para que no se pierda -->
                     <?php foreach ($numeros as $numero): ?> <!-- Incluyo los valores de las apuestas ya introducidas -->
-                        <input type="hidden" name="numeros[]" value="<?= $numero ?>" />
+                        <input type="hidden" name="numeros[]" value="<?= $numero ?>">
                     <?php endforeach ?>                 
                     <div class="input-seccion">
                         <label for="apuesta"><?= 'Enter a numero (' . LIM_INF . '-' . LIM_SUP . '):' ?></label> 
                         <input id="apuesta" type="number"  required name="apuesta" min="<?= LIM_INF ?>" 
-                               max="<?= LIM_SUP ?>" value="<?= ($apuesta) ?? ''; ?>" <?= !empty($fin) ? 'readonly' : '' ?> />
+                               max="<?= LIM_SUP ?>" value="<?= ($apuesta) ?? ''; ?>" <?= !empty($fin) ? 'readonly' : '' ?>>
                     </div>
+                    <!-- Si se ha acabado el juego -->
                     <?php if ($fin ?? false): ?> <!-- isset ($fin) && $fin Si se ha acabado el juego -->
                         <div class="submit-seccion">
                             <!-- Añado un botón para iniciar una nueva partida y un mensaje de fin de juego -->
                             <!-- <input class="submit" type="submit" value="Nuevo Juego" name="nuevo_juego" /> -->
                             <!-- <input class="submit" type="submit" formmethod="GET" value="Nuevo Juego" name="nuevo_juego"> -->
-                             <a href="<?= "{$_SERVER['PHP_SELF']}?nuevo_juego" ?>"><input class="submit" value="Nuevo Juego"></a>
+                            <input type="submit" class="submit" name="nuevo_juego" value="Nuevo Juego">
                         </div>
                         <p class="info-seccion"><?= ($apuesta === $numOculto) ? "Enhorabuena!!! Lo has acertado en {$numIntentos} " . (($numIntentos !== 1) ? "intentos" : "intento") : 'Lo sentimos!!' ?></p> 
                     <?php else: ?> <!-- Si no se ha acabado la partida o es el inicio de un nuevo juego-->
                         <div class="submit-seccion">
                             <!-- Añado un botón para enviar apuesta -->
-                            <input class="submit" type="submit" 
-                                   value="Apuesta" name="envio_apuesta" /> 
+                            <input class="submit" type="submit" value="Apuesta" name="envio_apuesta"> 
                         </div>
                         <?php if (!($fin ?? true)): ?> <!-- isset ($fin) && !$fin Si no se ha acabado el juego -->
                             <div class="info-seccion">
